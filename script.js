@@ -1,14 +1,18 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+let i = 0;
+
+function Book(title, author, pages, read, index) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = index;
 }
 
 function addBookToLibrary() {
-    // function for adding books to the array
+    myLibrary[i] = new Book ();
+    i++;
 }
 
 // function that displays all of the books on the page
