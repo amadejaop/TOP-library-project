@@ -1,3 +1,11 @@
 body {
     background-color: pink;
 }
+
+#form-message {
+    color: green;
+    visibility: hidden;
+    font-size: 0.75rem;
+    padding: 0;
+    margin: 0;
+}

@@ -15,6 +15,17 @@ function addBookToLibrary(title, author, pages, read) {
     i++;
 }
 
+function capitalize(string) {
+    return (string.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()));
+}
+
+function displayMessage() {
+    message.style.visibility = "visible";
+    setTimeout(() => {
+        message.style.visibility = "hidden";
+    }, 5000);
+}
+
 // function that displays all of the books on the page
 
 // new book button that brings up a form that allows users to add new books to their library
@@ -41,14 +52,12 @@ const titleInput = document.querySelector("#title");
 const pagesInput = document.querySelector("#num-pages");
 const radioButtons = document.querySelectorAll('input[name="read-status"]');
 const form = document.querySelector("form");
+const message = document.querySelector("#form-message")
 
 submitButton.addEventListener("click", (event) => {
     form.checkValidity();
     form.reportValidity();
     event.preventDefault();
-    console.log(authorInput.value);
-    console.log(titleInput.value);
-    console.log(pagesInput.value);
     let readStatus;
     for (const radioButton of radioButtons) {
         if (radioButton.checked) {
@@ -56,5 +65,11 @@ submitButton.addEventListener("click", (event) => {
             break;
         }
     }
-    console.log(readStatus);
+
+    if (authorInput.value && titleInput.value && pagesInput.value && readStatus) {
+        let bookTitle = capitalize(titleInput.value);
+        let bookAuthor = capitalize(authorInput.value);
+        addBookToLibrary(bookTitle, bookAuthor, pagesInput.value, readStatus);
+        displayMessage();
+    }
 });
