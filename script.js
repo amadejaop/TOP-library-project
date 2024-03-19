@@ -1,23 +1,4 @@
-const myLibrary = [
-    {
-        title: "Pride and Prejudice",
-        author: "Jane Austen",
-        pages: 530,
-        read: "read",
-    },
-    {
-        title: "Sense and Sensibility",
-        author: "Jane Austen",
-        pages: 420,
-        read: "read",
-    },
-    {
-        title: "The count of Monte Cristo",
-        author: "Alexandre Dumas",
-        pages: 1130,
-        read: "unread",
-    },
-];
+const myLibrary = [];
 
 let i = 0;
 
