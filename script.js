@@ -34,3 +34,24 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     dialog.close();
 });
+
+const submitButton = document.querySelector("#submit");
+const authorInput = document.querySelector("#author");
+const titleInput = document.querySelector("#title");
+const pagesInput = document.querySelector("#num-pages");
+const radioButtons = document.querySelectorAll('input[name="read-status"]');
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log(authorInput.value);
+    console.log(titleInput.value);
+    console.log(pagesInput.value);
+    let readStatus;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            readStatus = radioButton.value;
+            break;
+        }
+    }
+    console.log(readStatus);
+});
