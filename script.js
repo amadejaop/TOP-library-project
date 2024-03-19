@@ -26,7 +26,6 @@ function displayMessage() {
     }, 5000);
 }
 
-// function that displays all of the books on the page
 function displayBooks() {
     let tableRef = document.querySelector("table");
     tableRef.removeChild(tableRef.getElementsByTagName("tbody")[0]);
@@ -44,6 +43,7 @@ function displayBooks() {
                 let deleteButton = document.createElement("button");
                 deleteButton.innerText = "Remove book";
                 deleteButton.addEventListener("click", deleteBook)
+                deleteButton.bookTitle = book.title;
                 newCell.appendChild(deleteButton);
                 break;
             }
@@ -51,10 +51,11 @@ function displayBooks() {
     }
 }
 
-// remove book button that deletes the book from the array
-
-function deleteBook() {
-    //function
+function deleteBook(event) {
+    let deleteIndex = myLibrary.map(function(e) {return e.title}).indexOf(event.target.bookTitle);
+    if (deleteIndex > -1) {
+        myLibrary.splice(deleteIndex, 1);
+    }
 }
 
 // change status button that changes the status of the book between read and unread
