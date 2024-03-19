@@ -22,3 +22,15 @@ function addBookToLibrary() {
 // remove book button that deletes the book from the array
 
 // change status button that changes the status of the book between read and unread
+
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
