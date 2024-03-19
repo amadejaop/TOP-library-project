@@ -27,10 +27,35 @@ function displayMessage() {
 }
 
 // function that displays all of the books on the page
-
-// new book button that brings up a form that allows users to add new books to their library
+function displayBooks() {
+    let tableRef = document.querySelector("table");
+    tableRef.removeChild(tableRef.getElementsByTagName("tbody")[0]);
+    let tBodyRef = tableRef.createTBody();
+    for (book of myLibrary) {
+        let newRow = tBodyRef.insertRow(-1);
+        let i = 0;
+        for (property in book) {
+            let newCell = newRow.insertCell(i);
+            let newText = document.createTextNode(book[property])
+            newCell.appendChild(newText);
+            i++;
+            if (i === 4) {
+                let newCell = newRow.insertCell(i);
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "Remove book";
+                deleteButton.addEventListener("click", deleteBook)
+                newCell.appendChild(deleteButton);
+                break;
+            }
+        }
+    }
+}
 
 // remove book button that deletes the book from the array
+
+function deleteBook() {
+    //function
+}
 
 // change status button that changes the status of the book between read and unread
 
@@ -73,3 +98,6 @@ submitButton.addEventListener("click", (event) => {
         displayMessage();
     }
 });
+
+const refreshButton = document.querySelector("#refresh");
+refreshButton.addEventListener("click", displayBooks);
