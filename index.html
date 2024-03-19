@@ -8,7 +8,7 @@
 </head>
 <body>
     <dialog>
-        <button type="button">Close</button>
+        <button type="button" id="close-dialog">Close</button>
         <form action="POST" method="dialog">
             <label for="author">Author:</label>
             <input type="text" id="author" placeholder="Joe Smith" name="author" minlength="4" maxlength="50" required autofocus />
@@ -25,10 +25,9 @@
         <p id="form-message">Book added!</p>
     </dialog>
 
-    <button type="button">Add a book</button>
-
     <h1>My Library</h1>
-    <button type="button" id="refresh">Refresh the list</button>
+    <button type="button" id="show-dialog">Add a book</button>
+
     <table>
         <thead>
             <tr>
@@ -36,7 +35,6 @@
                 <th scope="col">Author</th>
                 <th scope="col">Pages</th>
                 <th scope="col">Status</th>
-                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody></tbody>

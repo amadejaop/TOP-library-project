@@ -45,6 +45,14 @@ function displayBooks() {
                 deleteButton.addEventListener("click", deleteBook)
                 deleteButton.bookTitle = book.title;
                 newCell.appendChild(deleteButton);
+
+                let newCell2 = newRow.insertCell(i + 1);
+                let statusButton = document.createElement("button");
+                statusButton.innerText = "Change status";
+                statusButton.addEventListener("click", changeStatus);
+                statusButton.bookTitle = book.title;
+                newCell2.appendChild(statusButton);
+
                 break;
             }
         }
@@ -56,13 +64,24 @@ function deleteBook(event) {
     if (deleteIndex > -1) {
         myLibrary.splice(deleteIndex, 1);
     }
+    displayBooks();
 }
 
 // change status button that changes the status of the book between read and unread
 
+function changeStatus(event) {
+    let changeIndex = myLibrary.map(function(e) {return e.title}).indexOf(event.target.bookTitle);
+    if (myLibrary[changeIndex].read === "read") {
+        myLibrary[changeIndex].read = "unread";
+    } else {
+        myLibrary[changeIndex].read = "read"
+    }
+    displayBooks();
+}
+
 const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+const showButton = document.querySelector("#show-dialog");
+const closeButton = document.querySelector("#close-dialog");
 
 showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -70,6 +89,7 @@ showButton.addEventListener("click", () => {
 
 closeButton.addEventListener("click", () => {
     dialog.close();
+    displayBooks();
 });
 
 const submitButton = document.querySelector("#submit");
