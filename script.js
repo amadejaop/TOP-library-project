@@ -10,8 +10,8 @@ function Book(title, author, pages, read, index) {
     this.index = index;
 }
 
-function addBookToLibrary() {
-    myLibrary[i] = new Book ();
+function addBookToLibrary(title, author, pages, read) {
+    myLibrary[i] = new Book (title, author, pages, read, i);
     i++;
 }
 
@@ -40,8 +40,11 @@ const authorInput = document.querySelector("#author");
 const titleInput = document.querySelector("#title");
 const pagesInput = document.querySelector("#num-pages");
 const radioButtons = document.querySelectorAll('input[name="read-status"]');
+const form = document.querySelector("form");
 
 submitButton.addEventListener("click", (event) => {
+    form.checkValidity();
+    form.reportValidity();
     event.preventDefault();
     console.log(authorInput.value);
     console.log(titleInput.value);
