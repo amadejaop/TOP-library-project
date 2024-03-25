@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Vermiglione;
-    src: url("./fonts/vermiglione.woff2");
+    font-family:"Vermiglione";
+    src:url("./fonts/vermiglione.woff2"),format("woff2");
 }
 
 :root {
@@ -47,7 +47,7 @@ fieldset {
 }
 
 h1 {
-    font-family: Vermiglione, "Times New Roman", serif;
+    font-family:"Vermiglione", "Times New Roman", serif;
 }
 
 input[type="text"],
@@ -108,7 +108,7 @@ table button:hover {
 }
 
 th {
-    font-family: Vermiglione, "Times New Roman", serif;
+    font-family:"Vermiglione", "Times New Roman", serif;
     font-size: 1.2rem;
 }
 

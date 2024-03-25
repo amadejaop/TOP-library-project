@@ -2,12 +2,14 @@ const myLibrary = [];
 
 let i = 0;
 
-function Book(title, author, pages, read, index) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.index = index;
+class Book {
+    constructor(title, author, pages, read, index) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.index = index;
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -119,6 +121,3 @@ submitButton.addEventListener("click", (event) => {
         displayMessage();
     }
 });
-
-const refreshButton = document.querySelector("#refresh");
-refreshButton.addEventListener("click", displayBooks);
